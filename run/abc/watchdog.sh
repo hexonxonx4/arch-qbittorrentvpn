@@ -9,7 +9,7 @@ if [[ ! -f "${qbittorrent_config}" ]]; then
 	echo "[info] qBittorrent config file doesnt exist, copying default to /config/qBittorrent/config/..."
 
 	# copy default qbittorrent config file to /config/qBittorrent/config/
-	mkdir -p /config/qBittorrent/config && cp /home/nobody/qbittorrent/config/* /config/qBittorrent/config/
+	mkdir -p /config/qBittorrent/config && cp /home/abc/qbittorrent/config/* /config/qBittorrent/config/
 
 else
 
@@ -54,7 +54,7 @@ while true; do
 		sed -i 's~^WebUI\\LocalHostAuth=.*~WebUI\\LocalHostAuth=false~g' "${qbittorrent_config}"
 
 		# run script to get all required info
-		source /home/nobody/preruncheck.sh
+		source /home/abc/preruncheck.sh
 
 		# if vpn_ip is not blank then run, otherwise log warning
 		if [[ ! -z "${vpn_ip}" ]]; then
@@ -115,7 +115,7 @@ while true; do
 						if [ "${sleep_period_counter_secs}" -ge "${sleep_period_incoming_port_secs}" ]; then
 
 							# run script to check incoming port is accessible
-							source /home/nobody/checkextport.sh
+							source /home/abc/checkextport.sh
 
 							# reset sleep period counter
 							sleep_period_counter_secs=0
@@ -140,7 +140,7 @@ while true; do
 			if [[ "${qbittorrent_port_change}" == "true" || "${ip_change}" == "true" || "${qbittorrent_running}" == "false" ]]; then
 
 				# run script to start qbittorrent, it can also perform shutdown of qbittorrent if its already running (required for port/ip change)
-				source /home/nobody/qbittorrent.sh
+				source /home/abc/qbittorrent.sh
 
 			fi
 
@@ -149,7 +149,7 @@ while true; do
 				if [[ "${privoxy_running}" == "false" ]]; then
 
 					# run script to start privoxy
-					source /home/nobody/privoxy.sh
+					source /home/abc/privoxy.sh
 
 				fi
 
@@ -169,7 +169,7 @@ while true; do
 			echo "[info] qBittorrent not running"
 
 			# run script to start qbittorrent
-			source /home/nobody/qbittorrent.sh
+			source /home/abc/qbittorrent.sh
 
 		fi
 
@@ -181,7 +181,7 @@ while true; do
 				echo "[info] Privoxy not running"
 
 				# run script to start privoxy
-				source /home/nobody/privoxy.sh
+				source /home/abc/privoxy.sh
 
 			fi
 

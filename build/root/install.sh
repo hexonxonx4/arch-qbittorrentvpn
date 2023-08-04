@@ -65,7 +65,7 @@ source aur.sh
 ####
 
 # define comma separated list of paths
-install_paths="/etc/privoxy,/home/nobody"
+install_paths="/etc/privoxy,/home/abc"
 
 # split comma separated string into list for install paths
 IFS=',' read -ra install_paths_list <<< "${install_paths}"

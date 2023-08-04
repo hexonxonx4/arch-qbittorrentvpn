@@ -1,4 +1,4 @@
-FROM binhex/arch-int-vpn:latest
+FROM hexonxonx4/arch-int-vpn:latest
 LABEL org.opencontainers.image.authors = "binhex"
 LABEL org.opencontainers.image.source = "https://github.com/binhex/arch-qbittorrentvpn"
 
@@ -15,16 +15,16 @@ ADD build/root/*.sh /root/
 ARG release_tag_name
 
 # add run bash scripts
-ADD run/nobody/*.sh /home/nobody/
+ADD run/abc/*.sh /home/abc/
 
-# add pre-configured config files for nobody
-ADD config/nobody/ /home/nobody/
+# add pre-configured config files for abc
+ADD config/abc/ /home/abc/
 
 # install app
 #############
 
 # make executable and run bash scripts to install app
-RUN chmod +x /root/*.sh /home/nobody/*.sh && \
+RUN chmod +x /root/*.sh /home/abc/*.sh && \
 	/bin/bash /root/install.sh "${release_tag_name}"
 
 # docker settings
